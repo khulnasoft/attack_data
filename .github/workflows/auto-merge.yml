@@ -1,0 +1,14 @@
+name: auto-merge
+
+on:
+  pull_request_target:
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: khulnasoft-lab/dependabot-auto-merge@main
+        with:
+          target: minor
+          github-token: ${{ secrets.ORG_REPO_TOKEN }}
